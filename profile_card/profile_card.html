@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>personal profile card</title>
+		<!-- google font link -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+			rel="stylesheet" />
+
+		<!-- Style Code Start -->
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				font-family: "DM Sans", sans-serif;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.profile_bg {
+				background-image: url("./image/bg_image.jpg");
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: fixed;
+				background-size: 100%;
+				height: 100vh;
+			}
+
+			.card_container {
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.card {
+				width: 25%;
+				border: 0px solid #000;
+				text-align: center;
+				padding: 30px;
+				backdrop-filter: blur(5px) saturate(200%);
+				backdrop-filter: blur(5px) saturate(109%);
+				-webkit-backdrop-filter: blur(5px) saturate(109%);
+				background-color: rgba(17, 25, 40, 0.17);
+				border-radius: 12px;
+				border: 1px solid rgba(255, 255, 255, 0.125);
+				box-shadow: 10px 10px 78px -37px rgb(35, 0, 63);
+				color: white;
+				position: relative;
+				transition: all 0.5s ease-in-out;
+			}
+
+			.card:hover {
+				background-color: rgba(0, 26, 255, 0.082);
+				transition: all 0.5s ease-in-out;
+			}
+
+			.card .tag {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 10px 20px;
+				background-color: rgba(255, 255, 255, 0.185);
+				color: #ffffff;
+				font-size: 11px;
+				font-weight: 800;
+				letter-spacing: 2px;
+				text-transform: uppercase;
+				margin: 10px;
+				border-radius: 5px;
+			}
+
+			.card .profile_image img {
+				width: 45%;
+				border-radius: 100%;
+				border: 3px solid #ffffff;
+				margin-bottom: 40px;
+				margin-top: 40px;
+			}
+
+			.card .profile_name h1 {
+				font-size: 28px;
+				font-weight: 600;
+			}
+
+			.card .profile_position h3 {
+				font-size: 14px;
+				font-weight: 400;
+				margin-bottom: 20px;
+				color: rgb(204, 204, 204);
+			}
+
+			.card .profile_desciption h6 {
+				font-size: 13px;
+				font-weight: 200;
+				margin-bottom: 20px;
+				padding: 0 20px;
+			}
+
+			.profile_projects_following_followers_container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 40px;
+				margin-bottom: 30px;
+				padding: 0 20px;
+			}
+
+			.profile_projects_following_followers_container .project_title {
+				font-size: 13px;
+				font-weight: 200;
+			}
+
+			.profile_projects_following_followers_container .project_count {
+				font-size: 25px;
+				font-weight: 600;
+			}
+
+			.profile_btn_group {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.profile_btn_group .follow_btn {
+				width: 100%;
+				padding: 15px;
+				border: none;
+				border-radius: 5px;
+				background-color: rgba(252, 252, 252, 0.137);
+				color: #fff;
+				font-weight: 600;
+				position: relative;
+				cursor: pointer;
+				overflow: hidden;
+				transition: all 0.4s ease-in-out;
+			}
+
+			/* follow button hover animation */
+
+			.follow_btn a {
+				color: #ffffffbf;
+				z-index: 9;
+				position: relative;
+				font-size: 15px;
+				font-weight: 200;
+				transition: all 0.4s ease-in-out;
+			}
+
+			.follow_btn:hover a {
+				color: black;
+				font-weight: 400;
+			}
+
+			.follow_btn::after {
+				content: "";
+				position: absolute;
+				border-radius: 50%;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgb(255, 255, 255);
+				transition: all 0.4s ease-in-out;
+			}
+
+			.follow_btn:hover::after {
+				top: 0;
+				border-radius: 0;
+				transition: all 0.4s ease-in-out;
+			}
+
+			.profile_btn_group .hire_btn {
+				width: 100%;
+				padding: 15px;
+				border: none;
+				border-radius: 5px;
+				background-color: white;
+				color: #fff;
+				color: #000;
+				font-weight: 300;
+				position: relative;
+				cursor: pointer;
+				overflow: hidden;
+				transition: all 0.4s ease-in-out;
+			}
+
+			/* Hire button hover animation */
+
+			.hire_btn a {
+				color: #000000;
+				z-index: 9;
+				position: relative;
+				font-size: 15px;
+				font-weight: 500;
+				transition: all 0.4s ease-in-out;
+			}
+
+			.hire_btn:hover a {
+				color: rgb(255, 255, 255);
+				font-weight: 400;
+			}
+
+			.hire_btn::after {
+				content: "";
+				position: absolute;
+				border-radius: 50%;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgb(17, 17, 17);
+				transition: all 0.4s ease-in-out;
+			}
+
+			.hire_btn:hover::after {
+				top: 0;
+				border-radius: 0;
+				transition: all 0.4s ease-in-out;
+			}
+
+			/* RESPONSIVE CODE START */
+			@media (max-width: 480px) {
+				.profile_bg {
+					background-size: cover;
+					height: 100vh;
+				}
+
+				.card {
+					width: 80%;
+				}
+			}
+
+			@media (min-width: 481px) and (max-width: 767px) {
+				.profile_bg {
+					background-size: cover;
+					height: 100vh;
+				}
+
+				.card {
+					width: 55%;
+				}
+			}
+
+			@media (min-width: 768px) and (max-width: 1024px) {
+				.profile_bg {
+					background-size: cover;
+					height: 100vh;
+				}
+
+				.card {
+					width: 45%;
+				}
+			}
+
+			/* RESPONSIVE CODE END */
+		</style>
+		<!-- Style Code End -->
+	</head>
+	<body>
+		<section class="profile_bg">
+			<div class="card_container">
+				<div class="card">
+					<div class="tag">Pro</div>
+					<div class="profile_image">
+						<img src="image/profile_image.jpg" alt="" />
+					</div>
+					<div class="profile_name">
+						<h1>Md. Enamul Haque</h1>
+					</div>
+					<div class="profile_position">
+						<h3>Web Developer and Designer</h3>
+					</div>
+					<div class="profile_desciption">
+						<h6>
+							Hello, I'm Enamul, a Web Design and Development Freelancer
+							specializing inWix, WordPress, and more. Contact me to enhance
+							your online presence.
+						</h6>
+					</div>
+					<div class="profile_projects_following_followers_container">
+						<div class="profile_projects_count">
+							<div class="profile_projects_count_inner">
+								<p class="project_title">Projects</p>
+								<p class="project_count">18</p>
+							</div>
+						</div>
+						<div class="profile_following">
+							<div class="profile_following_inner">
+								<p class="project_title">Following</p>
+								<p class="project_count">450</p>
+							</div>
+						</div>
+						<div class="profile_followers">
+							<div class="profile_followers_inner">
+								<p class="project_title">Followers</p>
+								<p class="project_count">450</p>
+							</div>
+						</div>
+					</div>
+					<div class="profile_btn_group">
+						<h4 class="follow_btn">
+							<a href="#">Follow</a>
+						</h4>
+						<h4 class="hire_btn">
+							<a href="#">Hire Me</a>
+						</h4>
+						<!-- <button class="follow_btn">Follow</button>
+						<button class="hire_btn">Hire Me</button> -->
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
